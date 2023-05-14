@@ -1,5 +1,5 @@
 {
-  "name": "hardhat-template",
+  "name": "@vertekfi/rate-providers",
   "scripts": {
     "build": "npx hardhat compile",
     "test": "npx hardhat test",
