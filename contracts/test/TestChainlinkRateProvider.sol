@@ -17,7 +17,7 @@ pragma solidity 0.8.11;
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
-import "./interfaces/IRateProvider.sol";
+import "../interfaces/IRateProvider.sol";
 
 contract TestChainlinkRateProvider is AccessControl, IRateProvider {
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
@@ -30,9 +30,9 @@ contract TestChainlinkRateProvider is AccessControl, IRateProvider {
     constructor(uint256 startingRate, uint256 decimals) {
         _rate = startingRate;
         // Think Chainlink might return their own decimal thing for some reason. If I'm thinking of the right thing
-        _scalingFactor = 10 ** SafeMath.sub(18, decimals());
+        _scalingFactor = 10 ** SafeMath.sub(18, decimals);
 
-        _grantRole(role, account);
+        _grantRole(ADMIN_ROLE, msg.sender);
     }
 
     /**
