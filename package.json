@@ -3,8 +3,6 @@
   "scripts": {
     "build": "npx hardhat compile",
     "test": "npx hardhat test",
-    "forge:test": "forge test -vvv",
-    "forge:test:watch": "forge test --watch --run-all -vvv",
     "deploy": "npx hardhat run ./scripts/deploy.ts",
     "deploy:zksync:testnet": "npx hardhat --network zkSyncTestnet deploy-zksync"
   },

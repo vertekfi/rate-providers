@@ -5,6 +5,8 @@ import '@openzeppelin/hardhat-upgrades';
 
 dotenv.config();
 
+const accounts = process.env.DEV_KEY !== undefined ? [process.env.DEV_KEY] : [];
+
 const config: HardhatUserConfig = {
   solidity: {
     compilers: [
@@ -29,11 +31,15 @@ const config: HardhatUserConfig = {
     },
     goerli: {
       url: process.env.GOERLI_RPC || '',
-      accounts: process.env.DEV_KEY !== undefined ? [process.env.DEV_KEY] : [],
+      accounts,
     },
     bsc: {
       url: process.env.BSC_RPC || '',
-      accounts: process.env.DEV_KEY !== undefined ? [process.env.DEV_KEY] : [],
+      accounts,
+    },
+    arbitrum: {
+      url: process.env.ARBITRUM_RPC || '',
+      accounts,
     },
   },
   etherscan: {
